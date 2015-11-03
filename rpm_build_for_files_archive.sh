@@ -104,10 +104,6 @@ BuildRoot: %BuildRoot
 
 %prep
 
-echo "=========="
-echo %TARGET
-echo "=========="
-
 %setup -q
 
 %build
