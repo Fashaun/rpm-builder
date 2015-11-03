@@ -6,8 +6,8 @@ Usage> bash rpm_build_for_files_archive.sh SOURCE_DIR RPM_OUTPUT_DIR RPM_PACKAGE
 ```
 
 ```
-$ bash rpm_build_for_files_archive.sh /etc/yum.repos.d/ /tmp test-yum.repos.d 1.0 1 /opt
-產出 /tmp/test-yum.repos-1.0-1.noarch.rpm
+$ bash rpm_build_for_files_archive.sh /etc/yum.repos.d/ /tmp test-yum 1.0 1 /opt
+產出 /tmp/test-yum-1.0-1.noarch.rpm
 
 $ bash bash rpm_build_for_files_archive.sh /etc/nginx/ /tmp test-nginx 1.0 1 /opt
 產出 /tmp/test-nginx-1.0-1.noarch.rpm
@@ -16,10 +16,10 @@ $ bash bash rpm_build_for_files_archive.sh /etc/nginx/ /tmp test-nginx 1.0 1 /op
 # 安裝測試
 
 ```
-$ rpm -ivh /tmp/test-yum.repos-1.0-1.noarch.rpm 
+$ rpm -ivh /tmp/test-yum-1.0-1.noarch.rpm 
 正在準備…             ########################################### [100%]
-   1:test-yum.repos         ########################################### [100%]
-$ ls -R /opt/test-yum.repos/
+   1:test-yum         ########################################### [100%]
+$ ls -R /opt/test-yum/
 /opt/test-yum.repos/:
 CentOS-Base.repo  CentOS-Debuginfo.repo  CentOS-fasttrack.repo  CentOS-Media.repo  CentOS-Vault.repo  nginx.repo
 
