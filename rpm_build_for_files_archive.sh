@@ -17,7 +17,7 @@ RPM_BUILD_WORK_DIR=$HOME/tmp-rpm-build/$pid
 
 if [ -z "$OUTPUT_DIR" ] ; then
 	echo "Usage> bash $0 SOURCE_DIR RPM_OUTPUT_DIR RPM_PACKAGE_NAME RPM_PACKAGE_VERSION RPM_PACKAGE_VERSION RPM_PACKAGE_INSTALL_DIR"
-	exit;
+	exit 1;
 fi
 
 if [ -z "$OUTPUT_DIR" ] ; then
@@ -26,20 +26,20 @@ fi
 
 if [ ! -d "$SOURCE_DIR" ] ; then
 	echo "[ERROR] SOURCE_DIR NOT EXISTS: $SOURCE_DIR"
-	exit
+	exit 1;
 fi
 
 if [ -z "$NAME" ] ; then
 	echo "[ERROR] NO NAME";
-	exit
+	exit 1;
 fi
 if [ -z "$VERSION" ] ; then
 	echo "[ERROR] NO VERSION";
-	exit
+	exit 1;
 fi
 if [ -z "$RELEASE" ] ; then
 	echo "[ERROR] NO RELEASE";
-	exit
+	exit 1;
 fi
 
 if [ -z "$INSTALL_DIR" ] ; then
@@ -49,7 +49,7 @@ fi
 if [ ! -z "$PACKAGE_SPEC_FILE" ] ; then
 	if [ ! -e $PACKAGE_SPEC_FILE ] ; then
 		echo "[ERROR] PACKAGE_SPEC_FILE NOT EXISTS: $PACKAGE_SPEC_FILE"
-		exit
+		exit 1;
 	fi
 fi
 
