@@ -111,7 +111,7 @@ BuildRoot: %BuildRoot
 
 %install
 install -d %BuildRoot/%INSTALL_DIR
-cp -r $PACKAGE_DIR/*.* %BuildRoot/%INSTALL_DIR
+cp -a $PACKAGE_DIR/. %BuildRoot/%INSTALL_DIR
 #find %BuildRoot/%INSTALL_DIR -type f | xargs chmod 644
 
 %files
