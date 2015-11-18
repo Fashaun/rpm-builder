@@ -64,7 +64,7 @@ mkdir -p $RPM_BUILD_WORK_DIR/BUILD $RPM_BUILD_WORK_DIR/RPMS $RPM_BUILD_WORK_DIR/
 mkdir -p $PACKAGE_DIR
 
 #cp -a $SOURCE_DIR/. $PACKAGE_DIR/
-test -e $SOURCE_DIR/.git && cd $SOURCE_DIR && echo "[" > $PACKAGE_DIR/version.json && git log -3 --pretty=format:"{\"commit\":\"%H\",\"update\":\"%ad\",\"author\":\"%an\"}," >> $PACKAGE_DIR/version.json && echo "{}]" >> $PACKAGE_DIR/version.json && cd -
+test -e $SOURCE_DIR/.git && cd $SOURCE_DIR && echo "[" > $PACKAGE_DIR/version.json && git log -3 --pretty=format:"{\"commit\":\"%H\",\"update\":\"%ad\",\"author\":\"%an\"}," >> $PACKAGE_DIR/version.json && echo -ne "\n{\"build\":\"$VERSION-$RELEASE\"}]" >> $PACKAGE_DIR/version.json && cd -
 rsync -a --exclude=.git --exclude=.git* --exclude=*.sql $SOURCE_DIR/. $PACKAGE_DIR/
 cd $RPM_BUILD_WORK_DIR/SOURCES && tar -zcvf $PACKAGE_TGZ_NAME $PACKAGE_NAME
 if [ ! -z "$PACKAGE_SPEC_FILE" ] ; then
