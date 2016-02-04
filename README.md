@@ -2,7 +2,7 @@
 
 ```
 $ bash rpm_build_for_files_archive.sh 
-Usage> bash rpm_build_for_files_archive.sh SOURCE_DIR RPM_OUTPUT_DIR RPM_PACKAGE_NAME RPM_PACKAGE_VERSION RPM_PACKAGE_VERSION RPM_PACKAGE_INSTALL_DIR
+Usage> bash rpm_build_for_files_archive.sh SOURCE_DIR RPM_OUTPUT_DIR RPM_PACKAGE_NAME RPM_PACKAGE_VERSION RPM_PACKAGE_VERSION RPM_PACKAGE_INSTALL_DIR SOURCE_GIT_DIR
 ```
 
 ```

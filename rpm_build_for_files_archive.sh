@@ -12,7 +12,8 @@ NAME=$3
 VERSION=$4
 RELEASE=$5
 INSTALL_DIR=$6
-PACKAGE_SPEC_FILE=$7
+GIT_DIR=$7
+PACKAGE_SPEC_FILE=$8
 RPM_BUILD_WORK_DIR=$HOME/tmp-rpm-build/$pid
 
 if [ -z "$OUTPUT_DIR" ] ; then
@@ -44,6 +45,10 @@ fi
 
 if [ -z "$INSTALL_DIR" ] ; then
 	INSTALL_DIR=/opt
+fi
+
+if [ -z "$GIT_DIR" ] ; then
+	GIT_DIR=$SOURCE_DIR
 fi
 
 if [ ! -z "$PACKAGE_SPEC_FILE" ] ; then
