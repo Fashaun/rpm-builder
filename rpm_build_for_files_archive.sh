@@ -13,11 +13,12 @@ VERSION=$4
 RELEASE=$5
 INSTALL_DIR=$6
 GIT_DIR=$7
-PACKAGE_SPEC_FILE=$8
+DISABLE_BINARY_DEPENDENCY_CHECK=$8
+PACKAGE_SPEC_FILE=$9
 RPM_BUILD_WORK_DIR=$HOME/tmp-rpm-build/$pid
 
 if [ -z "$OUTPUT_DIR" ] ; then
-	echo "Usage> bash $0 SOURCE_DIR RPM_OUTPUT_DIR RPM_PACKAGE_NAME RPM_PACKAGE_VERSION RPM_PACKAGE_VERSION RPM_PACKAGE_INSTALL_DIR GIT_DIR_FOR_VERSION_LOG"
+	echo "Usage> bash $0 SOURCE_DIR RPM_OUTPUT_DIR RPM_PACKAGE_NAME RPM_PACKAGE_VERSION RPM_PACKAGE_VERSION RPM_PACKAGE_INSTALL_DIR GIT_DIR_FOR_VERSION_LOG DISABLE_BINARY_DEPENDENCY_CHECK"
 	exit 1;
 fi
 
@@ -49,6 +50,10 @@ fi
 
 if [ -z "$GIT_DIR" ] ; then
 	GIT_DIR=$SOURCE_DIR
+fi
+
+if [ ! -z "$DISABLE_BINARY_DEPENDENCY_CHECK" ] ; then
+	DISABLE_BINARY_DEPENDENCY_CHECK="AutoReqProv: no"
 fi
 
 if [ ! -z "$PACKAGE_SPEC_FILE" ] ; then
@@ -106,6 +111,9 @@ Group: %Group
 SOURCE: %Source
 BuildArch: noarch
 BuildRoot: %BuildRoot
+
+# Disable Automatic Dependency Processing, http://rpm5.org/docs/max-rpm.html#s2-rpm-depend-autoreqprov
+$DISABLE_BIN_DEPS
 
 %description
 
